@@ -1,4 +1,4 @@
-# NextJS Boilerplate
+# Ecommerce Product
 
 ## How to use
 
@@ -7,13 +7,13 @@ Clone this respository using terminal or bash.
 ### 1\. Clone this Repository
 
 ```bash
-git clone https://github.com/devSaadRaja/NextJS-boilerplate.git
+git clone https://github.com/devSaadRaja/ecomm-product.git
 ```
 
 ### 2\. Navigate to the directory
 
 ```
-cd NextJS-boilerplate
+cd ecomm-product
 ```
 
 ### 3\. Install dependencies

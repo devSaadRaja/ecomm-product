@@ -1,7 +1,7 @@
 {
-  "name": "nextjs-boilerplate",
+  "name": "ecomm-product",
   "version": "1.0.0",
-  "description": "NextJS Boilerplate",
+  "description": "Ecommerce Product",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -11,12 +11,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/devSaadRaja/NextJS-boilerplate.git"
+    "url": "https://github.com/devSaadRaja/ecomm-product.git"
   },
   "keywords": [
     "nextjs",
     "tailwindcss",
-    "boilerplate"
+    "ecommerce"
   ],
   "author": "Saad Raja",
   "license": "ISC",

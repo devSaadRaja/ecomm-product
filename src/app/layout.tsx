@@ -17,8 +17,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Comp", // "Competition",
-  description: "fun starts here",
+  title: "Ecommerce Product",
+  description: "Ecommerce Product",
 };
 
 export default function RootLayout({
