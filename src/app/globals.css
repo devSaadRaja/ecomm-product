@@ -171,3 +171,37 @@ input[type="number"]::-webkit-outer-spin-button {
 input[type="number"] {
   -moz-appearance: textfield;
 }
+
+/* Custom scrollbar for webkit browsers */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #3a2723;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #6e7f80;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ff6b35;
+}
+
+/* Custom styles for shadcn components */
+.button-primary {
+  background-color: #ff6b35;
+  color: #fff8e7;
+}
+
+.button-primary:hover {
+  background-color: #e55a24;
+}
+
+.card-hover:hover {
+  border-color: #ff6b35;
+  transition: border-color 0.2s ease;
+}
