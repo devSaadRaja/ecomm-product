@@ -205,3 +205,36 @@ input[type="number"] {
   border-color: #ff6b35;
   transition: border-color 0.2s ease;
 }
+
+@layer components {
+  .btn-primary {
+    background-color: #ff6b35;
+    color: #fff8e7;
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    font-weight: 500;
+    transition-property: opacity;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+  }
+
+  .btn-primary:hover {
+    opacity: 0.9;
+  }
+
+  .btn-secondary {
+    background-color: transparent;
+    border: 1px solid #6e7f80;
+    color: #fff8e7;
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    font-weight: 500;
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+  }
+
+  .btn-secondary:hover {
+    background-color: rgba(110, 127, 128, 0.2);
+  }
+}

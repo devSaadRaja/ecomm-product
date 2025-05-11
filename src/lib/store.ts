@@ -1,5 +1,6 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
+import { WishlistItem } from "@/types";
 
 export type Product = {
   id: string;
@@ -89,6 +90,56 @@ export const useStore = create<StoreState>()(
     }),
     {
       name: "cart-storage",
+    }
+  )
+);
+
+interface WishlistStore {
+  items: WishlistItem[];
+  addToWishlist: (product: Product) => void;
+  removeFromWishlist: (productId: string) => void;
+  isInWishlist: (productId: string) => boolean;
+  clearWishlist: () => void;
+}
+
+export const useWishlistStore = create<WishlistStore>()(
+  persist(
+    (set, get) => ({
+      items: [],
+
+      addToWishlist: (product: Product) => {
+        const { items } = get();
+        const isExisting = items.some((item) => item.id === product.id);
+
+        if (!isExisting) {
+          const wishlistItem: WishlistItem = {
+            ...product,
+            dateAdded: new Date().toISOString(),
+            description: "",
+            category: "",
+            rating: 0,
+            reviews: 0,
+            inStock: true,
+          };
+
+          set({ items: [...items, wishlistItem] });
+        }
+      },
+
+      removeFromWishlist: (productId: string) => {
+        const { items } = get();
+        set({ items: items.filter((item) => item.id !== productId) });
+      },
+
+      isInWishlist: (productId: string) => {
+        const { items } = get();
+        return items.some((item) => item.id === productId);
+      },
+
+      clearWishlist: () => set({ items: [] }),
+    }),
+    {
+      name: "wishlist-storage",
     }
   )
 );

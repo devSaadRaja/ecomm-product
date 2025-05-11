@@ -5,24 +5,24 @@ import { Button } from "@/components/ui/button";
 import { BabyIcon } from "@/components/BabyIcon";
 
 interface ProductCardProps {
-  id: string;
-  name: string;
-  price: number;
-  image: string;
-  rating: number;
-  reviewCount: number;
-  badge?: string;
+  product: {
+    id: string;
+    name: string;
+    price: number;
+    image: string;
+    rating: number;
+    reviewCount: number;
+    badge?: string;
+  };
+  inWishlist?: boolean;
 }
 
 export default function ProductCard({
-  id,
-  name,
-  price,
-  image,
-  rating,
-  reviewCount,
-  badge,
+  product,
+  inWishlist = false,
 }: ProductCardProps) {
+  const { id, name, price, image, rating, reviewCount, badge } = product;
+
   return (
     <div className="group relative overflow-hidden rounded-[20px] bg-[#4E342E] border-2 border-[#6E7F80]/20 hover:border-[#FF6B35]/30 transition-all hover:shadow-lg hover:shadow-[#FF6B35]/5">
       <Link
@@ -41,8 +41,10 @@ export default function ProductCard({
           </div>
         )}
         <button className="absolute top-3 right-3 flex h-8 w-8 items-center justify-center rounded-full bg-[#4E342E]/80 text-[#FFF8E7] opacity-0 transition-opacity hover:text-[#FF6B35] group-hover:opacity-100">
-          <Heart className="h-4 w-4" />
-          <span className="sr-only">Add to wishlist</span>
+          <Heart className={`h-4 w-4 ${inWishlist ? "fill-[#FF6B35]" : ""}`} />
+          <span className="sr-only">
+            {inWishlist ? "Remove from wishlist" : "Add to wishlist"}
+          </span>
         </button>
         <div className="absolute -bottom-3 -right-3 opacity-0 group-hover:opacity-100 transition-opacity">
           <BabyIcon.Blocks className="w-10 h-10 text-[#FF6B35] transform rotate-12" />

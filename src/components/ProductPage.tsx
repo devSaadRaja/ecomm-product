@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
-import { useStore } from "@/lib/store";
+import { useStore, useWishlistStore } from "@/lib/store";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -60,6 +60,7 @@ export default function ProductPage() {
   const [selectedSize, setSelectedSize] = useState("0-3m");
   const [quantity, setQuantity] = useState(1);
   const { addToCart } = useStore();
+  const { addToWishlist } = useWishlistStore();
 
   const handleAddToCart = () => {
     addToCart(
@@ -82,6 +83,15 @@ export default function ProductPage() {
   const increaseQuantity = () => {
     setQuantity(quantity + 1);
   };
+
+  // Add some sample products to wishlist for demo purposes
+  useEffect(() => {
+    // Only add the first two products to the wishlist
+    addToWishlist({
+      ...product,
+      image: product.images[0],
+    });
+  }, [addToWishlist]);
 
   return (
     <div className="container py-8 md:py-12">

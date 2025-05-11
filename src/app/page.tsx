@@ -317,37 +317,45 @@ export default function HomePage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             <ProductCard
-              id="1"
-              name="Organic Cotton Onesie"
-              price={24.99}
-              image="/organic-cotton-onesie.png"
-              rating={4.8}
-              reviewCount={86}
+              product={{
+                id: "1",
+                name: "Organic Cotton Onesie",
+                price: 24.99,
+                image: "/organic-cotton-onesie.png",
+                rating: 4.8,
+                reviewCount: 86,
+              }}
             />
             <ProductCard
-              id="2"
-              name="Soft Baby Blanket"
-              price={34.99}
-              image="/soft-baby-blanket.png"
-              rating={4.9}
-              reviewCount={112}
+              product={{
+                id: "2",
+                name: "Soft Baby Blanket",
+                price: 34.99,
+                image: "/soft-baby-blanket.png",
+                rating: 4.9,
+                reviewCount: 112,
+              }}
             />
             <ProductCard
-              id="3"
-              name="Wooden Teething Toy"
-              price={19.99}
-              image="/wooden-baby-teether.png"
-              rating={4.7}
-              reviewCount={64}
+              product={{
+                id: "3",
+                name: "Wooden Teething Toy",
+                price: 19.99,
+                image: "/wooden-baby-teether.png",
+                rating: 4.7,
+                reviewCount: 64,
+              }}
             />
             <ProductCard
-              id="4"
-              name="Baby Care Gift Set"
-              price={49.99}
-              image="/placeholder.svg"
-              rating={4.9}
-              reviewCount={93}
-              badge="BESTSELLER"
+              product={{
+                id: "4",
+                name: "Baby Care Gift Set",
+                price: 49.99,
+                image: "/placeholder.svg",
+                rating: 4.9,
+                reviewCount: 93,
+                badge: "BESTSELLER",
+              }}
             />
           </div>
         </div>

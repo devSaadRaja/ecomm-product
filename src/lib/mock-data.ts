@@ -1,4 +1,118 @@
-import type { Order } from "@/types";
+import type { Order, Product } from "@/types";
+
+export const sampleProducts: Product[] = [
+  {
+    id: "1",
+    name: "Organic Cotton Swaddle Blanket",
+    description:
+      'Made from 100% GOTS certified organic cotton, our swaddle blanket is ultra-soft, breathable, and gentle on your baby\'s sensitive skin. The generous size (47" x 47") makes it perfect for swaddling, nursing cover, stroller cover, or tummy time mat.',
+    price: 29.99,
+    image: "/soft-white-swaddle.png",
+    category: "Blankets",
+    rating: 5,
+    reviews: 124,
+    inStock: true,
+    isNew: true,
+    specifications: {
+      Material: "100% Organic Cotton",
+      Size: '47" x 47"',
+      Care: "Machine Washable",
+      Safety: "Hypoallergenic",
+    },
+  },
+  {
+    id: "2",
+    name: "Silicone Baby Teething Toy",
+    description:
+      "Our silicone teething toy is designed to soothe your baby's sore gums during teething. Made from 100% food-grade silicone, it's soft, flexible, and easy for little hands to hold. The textured surface provides relief for tender gums.",
+    price: 12.99,
+    image: "/colorful-silicone-teether.png",
+    category: "Toys",
+    rating: 4,
+    reviews: 89,
+    inStock: true,
+    specifications: {
+      Material: "Food-grade Silicone",
+      Age: "3+ months",
+      Care: "Dishwasher Safe",
+      Safety: "BPA-free",
+    },
+  },
+  {
+    id: "3",
+    name: "Bamboo Baby Hooded Towel",
+    description:
+      "Wrap your little one in luxury after bath time with our bamboo hooded towel. It's 35% more absorbent than cotton and naturally antibacterial. The soft, plush fabric is gentle on delicate skin, and the hood keeps baby's head warm.",
+    price: 24.99,
+    image: "/white-bamboo-hooded-towel.png",
+    category: "Bath",
+    rating: 5,
+    reviews: 67,
+    inStock: true,
+    isNew: true,
+    specifications: {
+      Material: "70% Bamboo, 30% Cotton",
+      Size: '35" x 35"',
+      Care: "Machine Washable",
+      Features: "Hooded",
+    },
+  },
+  {
+    id: "4",
+    name: "Adjustable Baby Carrier",
+    description:
+      "Our ergonomic baby carrier grows with your baby from newborn to toddler (7-45 lbs). The padded shoulder straps and waist belt distribute weight evenly for maximum comfort. Multiple carrying positions allow you to find the perfect fit for you and your baby.",
+    price: 89.99,
+    image: "/placeholder.svg?key=hmk7o",
+    category: "Carriers",
+    rating: 4,
+    reviews: 156,
+    inStock: true,
+    specifications: {
+      "Weight Range": "7-45 lbs",
+      Material: "100% Organic Cotton",
+      Positions: "Front, Hip, Back",
+      Features: "Adjustable, Machine Washable",
+    },
+  },
+  {
+    id: "5",
+    name: "Wooden Baby Rattle Set",
+    description:
+      "Introduce your baby to the joy of sound with our wooden rattle set. Made from sustainably harvested maple wood and finished with non-toxic, water-based paint. The smooth, rounded edges are safe for baby to hold and explore.",
+    price: 19.99,
+    image: "/wooden-baby-rattles.png",
+    category: "Toys",
+    rating: 5,
+    reviews: 42,
+    inStock: true,
+    specifications: {
+      Material: "Maple Wood",
+      Age: "0+ months",
+      Finish: "Non-toxic Paint",
+      Pieces: "3",
+    },
+  },
+  {
+    id: "6",
+    name: "Organic Cotton Crib Sheets",
+    description:
+      "Give your baby the gift of comfortable sleep with our organic cotton crib sheets. The fitted design ensures a snug fit on standard crib mattresses, while the soft, breathable fabric keeps baby cool and comfortable all night long.",
+    price: 34.99,
+    image:
+      "/placeholder.svg?height=600&width=600&query=white%20organic%20cotton%20crib%20sheets",
+    category: "Bedding",
+    rating: 4,
+    reviews: 78,
+    inStock: true,
+    specifications: {
+      Material: "100% Organic Cotton",
+      Size: "Standard Crib",
+      "Thread Count": "300",
+      Care: "Machine Washable",
+    },
+  },
+];
 
 export const mockOrders: Order[] = [
   {
