@@ -1,9 +1,16 @@
+"use client";
+
 import Link from "next/link";
 import { BabyIcon } from "@/components/BabyIcon";
 import { Button } from "@/components/ui/button";
-import { ShoppingCart, Heart } from "lucide-react";
+import { ShoppingCart, Heart, Badge } from "lucide-react";
+import { useStore } from "@/lib/store";
 
 export default function Header() {
+  const { cart } = useStore();
+
+  const cartItemsCount = cart.reduce((total, item) => total + item.quantity, 0);
+
   return (
     <header className="sticky top-0 z-50 w-full border-b border-[#6E7F80]/20 bg-[#4E342E] backdrop-blur-lg">
       <div className="container flex h-16 items-center justify-between">
@@ -51,10 +58,14 @@ export default function Header() {
           </Link>
           <Link
             href="/cart"
-            className="flex items-center justify-center rounded-full w-9 h-9 bg-[#6E7F80]/10 hover:bg-[#6E7F80]/20 transition-colors"
+            className="relative flex items-center justify-center rounded-full w-9 h-9 bg-[#6E7F80]/10 hover:bg-[#6E7F80]/20 transition-colors"
           >
             <ShoppingCart className="h-5 w-5 text-[#FFF8E7]" />
-            <span className="sr-only">Cart</span>
+            {cartItemsCount > 0 && (
+              <span className="absolute -top-2 -right-2 flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-[#FF6B35] rounded-full">
+                {cartItemsCount > 20 ? '20+' : cartItemsCount}
+              </span>
+            )}
           </Link>
           <Button
             variant="outline"

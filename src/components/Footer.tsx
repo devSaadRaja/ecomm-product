@@ -16,7 +16,6 @@ export default function Footer() {
           <BabyIcon.Moon className="w-8 h-8 text-[#FF6B35]/20" />
         </div>
 
-        {/* <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-4"> */}
         <div className="flex flex-col justify-between gap-8 sm:flex-col md:flex-row">
           <div className="space-y-4">
             <Link href="/" className="flex items-center gap-2">
