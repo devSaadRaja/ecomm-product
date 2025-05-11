@@ -11,10 +11,13 @@ export type Product = {
 export type CartItem = {
   product: Product;
   quantity: number;
+  category: string;
 };
 
 type StoreState = {
   cart: CartItem[];
+  totalItems: number;
+  subtotal: number;
   addToCart: (product: Product, quantity: number) => void;
   removeFromCart: (productId: string) => void;
   updateQuantity: (productId: string, quantity: number) => void;
@@ -25,6 +28,8 @@ export const useStore = create<StoreState>()(
   persist(
     (set) => ({
       cart: [],
+      totalItems: 0,
+      subtotal: 0,
 
       addToCart: (product, quantity) =>
         set((state) => {
@@ -32,34 +37,55 @@ export const useStore = create<StoreState>()(
             (item) => item.product.id === product.id
           );
 
-          if (existingItem) {
-            return {
-              cart: state.cart.map((item) =>
+          const newCart = existingItem
+            ? state.cart.map((item) =>
                 item.product.id === product.id
                   ? { ...item, quantity: item.quantity + quantity }
                   : item
-              ),
-            };
-          }
+              )
+            : [...state.cart, { product, quantity, category: "" }];
 
           return {
-            cart: [...state.cart, { product, quantity }],
+            cart: newCart,
+            totalItems: newCart.reduce((sum, item) => sum + item.quantity, 0),
+            subtotal: newCart.reduce(
+              (sum, item) => sum + item.product.price * item.quantity,
+              0
+            ),
           };
         }),
 
       removeFromCart: (productId) =>
-        set((state) => ({
-          cart: state.cart.filter((item) => item.product.id !== productId),
-        })),
+        set((state) => {
+          const newCart = state.cart.filter(
+            (item) => item.product.id !== productId
+          );
+          return {
+            cart: newCart,
+            totalItems: newCart.reduce((sum, item) => sum + item.quantity, 0),
+            subtotal: newCart.reduce(
+              (sum, item) => sum + item.product.price * item.quantity,
+              0
+            ),
+          };
+        }),
 
       updateQuantity: (productId, quantity) =>
-        set((state) => ({
-          cart: state.cart.map((item) =>
+        set((state) => {
+          const newCart = state.cart.map((item) =>
             item.product.id === productId ? { ...item, quantity } : item
-          ),
-        })),
+          );
+          return {
+            cart: newCart,
+            totalItems: newCart.reduce((sum, item) => sum + item.quantity, 0),
+            subtotal: newCart.reduce(
+              (sum, item) => sum + item.product.price * item.quantity,
+              0
+            ),
+          };
+        }),
 
-      clearCart: () => set({ cart: [] }),
+      clearCart: () => set({ cart: [], totalItems: 0, subtotal: 0 }),
     }),
     {
       name: "cart-storage",

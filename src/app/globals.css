@@ -73,21 +73,21 @@
   body {
     @apply bg-background text-foreground;
   }
-  h1,
+  /* h1,
   h2,
   h3,
   h4,
   h5,
   h6 {
-    /* @apply font-dm-sans; */
+    @apply font-dm-sans;
   }
   p,
   span,
   div,
   a,
   button {
-    /* @apply font-open-sans; */
-  }
+    @apply font-open-sans;
+  } */
 }
 
 :root {
@@ -159,4 +159,15 @@ body {
 .animate-float-delay {
   animation: float-delay 8s ease-in-out infinite;
   animation-delay: 1s;
+}
+
+/* Hide number input arrows */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
 }

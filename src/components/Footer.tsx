@@ -8,7 +8,7 @@ export default function Footer() {
   return (
     <footer className="border-t border-[#6E7F80]/20 bg-[#4E342E] relative overflow-hidden">
       <BabyPattern className="absolute inset-0 opacity-5" />
-      <div className="container py-12 md:py-16 relative">
+      <div className="container pt-12 pb-7 md:pt-16 md:pb-7 relative">
         <div className="absolute top-10 right-10 animate-float">
           <BabyIcon.Star className="w-6 h-6 text-[#FF6B35]/20" />
         </div>
