@@ -6,10 +6,12 @@ import { Button } from "@/components/ui/button";
 import { ShoppingCart, Heart, Menu, X } from "lucide-react";
 import { useStore } from "@/lib/store";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 
 export default function Header() {
   const { cart } = useStore();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   const cartItemsCount = cart.reduce((total, item) => total + item.quantity, 0);
 
@@ -27,19 +29,29 @@ export default function Header() {
         <nav className="hidden md:flex gap-6">
           <Link
             href="/"
-            className="text-sm font-medium hover:text-[#FF6B35] transition-colors font-sans"
+            className={`text-sm font-medium transition-colors font-sans ${
+              pathname === "/" ? "text-[#FF6B35]" : "hover:text-[#FF6B35]"
+            }`}
           >
             Home
           </Link>
           <Link
             href="/products"
-            className="text-sm font-medium hover:text-[#FF6B35] transition-colors font-sans"
+            className={`text-sm font-medium transition-colors font-sans ${
+              pathname === "/products"
+                ? "text-[#FF6B35]"
+                : "hover:text-[#FF6B35]"
+            }`}
           >
             Products
           </Link>
           <Link
             href="/history"
-            className="text-sm font-medium hover:text-[#FF6B35] transition-colors font-sans"
+            className={`text-sm font-medium transition-colors font-sans ${
+              pathname === "/history"
+                ? "text-[#FF6B35]"
+                : "hover:text-[#FF6B35]"
+            }`}
           >
             Order History
           </Link>
@@ -94,28 +106,42 @@ export default function Header() {
           <div className="container flex flex-col space-y-4">
             <Link
               href="/"
-              className="text-sm font-medium hover:text-[#FF6B35] transition-colors font-sans px-2 py-2"
+              className={`text-sm font-medium transition-colors font-sans px-2 py-2 ${
+                pathname === "/" ? "text-[#FF6B35]" : "hover:text-[#FF6B35]"
+              }`}
               onClick={() => setMobileMenuOpen(false)}
             >
               Home
             </Link>
             <Link
               href="/products"
-              className="text-sm font-medium hover:text-[#FF6B35] transition-colors font-sans px-2 py-2"
+              className={`text-sm font-medium transition-colors font-sans px-2 py-2 ${
+                pathname === "/products"
+                  ? "text-[#FF6B35]"
+                  : "hover:text-[#FF6B35]"
+              }`}
               onClick={() => setMobileMenuOpen(false)}
             >
               Products
             </Link>
             <Link
               href="/history"
-              className="text-sm font-medium hover:text-[#FF6B35] transition-colors font-sans px-2 py-2"
+              className={`text-sm font-medium transition-colors font-sans px-2 py-2 ${
+                pathname === "/history"
+                  ? "text-[#FF6B35]"
+                  : "hover:text-[#FF6B35]"
+              }`}
               onClick={() => setMobileMenuOpen(false)}
             >
               Order History
             </Link>
             <Link
               href="/wishlist"
-              className="text-sm font-medium hover:text-[#FF6B35] transition-colors font-sans px-2 py-2 flex items-center gap-2"
+              className={`text-sm font-medium transition-colors font-sans px-2 py-2 flex items-center gap-2 ${
+                pathname === "/wishlist"
+                  ? "text-[#FF6B35]"
+                  : "hover:text-[#FF6B35]"
+              }`}
               onClick={() => setMobileMenuOpen(false)}
             >
               <Heart className="h-4 w-4" />
