@@ -1,24 +1,29 @@
 import type { Metadata } from "next";
-import { Inter, Poppins } from "next/font/google";
+import { DM_Sans, Open_Sans } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import "./globals.css";
 
 import WagmiConfig from "./WagmiConfig";
 import { Toaster } from "react-hot-toast";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
-const poppins = Poppins({
+const dmSans = DM_Sans({
   subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-  variable: "--font-primary",
+  weight: ["400", "500", "700"],
+  variable: "--font-dm-sans",
 });
-const inter = Inter({
+
+const openSans = Open_Sans({
   subsets: ["latin"],
-  variable: "--font-secondary",
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-open-sans",
 });
 
 export const metadata: Metadata = {
-  title: "Ecommerce Product",
-  description: "Ecommerce Product",
+  title: "BabyBliss - Premium Newborn Essentials",
+  description:
+    "Discover our premium collection of newborn essentials designed with love for your baby's comfort and your peace of mind.",
 };
 
 export default function RootLayout({
@@ -28,7 +33,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${poppins.variable} ${inter.variable}`}>
+      <body className={`${dmSans.variable} ${openSans.variable}`}>
         <WagmiConfig>
           <ThemeProvider attribute="class">
             <Toaster
@@ -52,7 +57,9 @@ export default function RootLayout({
               // }}
             />
 
+            <Header />
             <div>{children}</div>
+            <Footer />
           </ThemeProvider>
         </WagmiConfig>
       </body>
