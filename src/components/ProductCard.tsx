@@ -30,7 +30,7 @@ export default function ProductCard({
         className="relative block aspect-square overflow-hidden rounded-t-[18px]"
       >
         <Image
-          src={image || "/placeholder.svg"}
+          src={image || "/baby-onesie-back.png"}
           alt={name}
           fill
           className="object-cover transition-transform group-hover:scale-105"
